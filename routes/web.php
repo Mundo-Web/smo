@@ -148,6 +148,7 @@ Route::middleware(['auth:sanctum', 'verified', 'can:Admin'])->group(function () 
         //Etiquetas
         Route::resource('/tags', TagController::class);
         Route::post('/tags/deleteTags', [TagController::class, 'deleteTags'])->name('tags.deleteTags');
+        Route::post('/tags/updateVisible', [TagController::class, 'updateVisible'])->name('tags.updateVisible');
 
         //Productos
         Route::resource('/products', ProductsController::class);

@@ -8,9 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Strength extends Model
 {
     use HasFactory;
-    protected $filleable = ['titulo',
+    protected $filleable = [
+        'titulo',
+    'descripcionshort',
     'descripcion',
     'icono',
     'imagen',
-    'status'] ; 
+    'status'
+    ] ; 
 }

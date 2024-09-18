@@ -119,6 +119,8 @@ class StrengthController extends Controller
       'titulo' => 'required',
     ]);
 		$fortaleza = Strength::find($id);
+
+		dump($request->all());
 		try {
 			if ($request->hasFile("icono")) {
 				$file = $request->file('icono');

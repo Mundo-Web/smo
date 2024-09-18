@@ -15,7 +15,7 @@
           <div class="rounded shadow-lg p-4 px-4 ">
             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
               <div class="md:col-span-5">
-                <label for="nombre">Titulo</label>
+                <label for="nombre">Numero</label>
                 <div class="relative mb-2  mt-2">
                   <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                     <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +35,7 @@
                 </div>
               </div>
               <div class="md:col-span-5">
-                <label for="titulo">Descripción corta</label>
+                <label for="titulo">Simbolo</label>
                 <div class="relative mb-2  mt-2">
                   <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                     <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg"
@@ -49,13 +49,14 @@
                       </g>
                     </svg>
                   </div>
-                  <input type="text" id="descripcionshort" name="descripcionshort" value="{{ $strength->descripcionshort }}"
+                  <input type="text" id="descripcionshort" name="descripcionshort"
+                    value="{{ $strength->descripcionshort }}"
                     class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Descripción corta">
                 </div>
               </div>
               <div class="md:col-span-5">
-                <label for="descripcion">Descripcion</label>
+                <label for="descripcion">Descripcion Corta</label>
                 <div class="relative mb-2  mt-2">
                   <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                     <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +70,7 @@
                       </g>
                     </svg>
                   </div>
-                  <textarea type="text" id="descripcion" name="descripcion" 
+                  <textarea type="text" id="descripcion" name="descripcion"
                     class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Descripcion">{{ $strength->descripcion }}</textarea>
                 </div>
@@ -99,12 +100,13 @@
 
               <div class="md:col-span-5 text-right mt-6 flex justify-between">
                 <div class="inline-flex items-end">
-                  <a href="{{ URL::previous() }}"  class="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded">Volver</a>
+                  <a href="{{ URL::previous() }}"
+                    class="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded">Volver</a>
                 </div>
                 <div class="inline-flex items-end">
                   <button type="submit"
                     class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">Actualizar
-                    </button>
+                  </button>
                 </div>
               </div>
             </div>
@@ -115,7 +117,7 @@
 
   </div>
 
-  <script>
+  {{--  <script>
     $('document').ready(function() {
 
       tinymce.init({
@@ -134,6 +136,6 @@
       });
 
     })
-  </script>
+  </script> --}}
 
 </x-app-layout>

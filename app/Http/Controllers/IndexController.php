@@ -20,6 +20,7 @@ use App\Models\Specifications;
 use App\Models\ClientLogos;
 use App\Models\Service;
 use App\Models\AboutUs;
+use App\Models\Tag;
 use App\Models\User;
 use App\Models\UserDetails;
 use Illuminate\Http\Request;
@@ -47,8 +48,12 @@ class IndexController extends Controller
         $general = General::all()->first();
         $servicios = Service::where('status', 1)->where('visible', 1)->get();
         $logos = ClientLogos::where('status', '=', 1)->get();
+        $estadisticas =  Strength::where('status', 1)->get();
+        $comoLoHacemos = Tag::where('status', 1)->where('visible', 1)->get();
+        $sliders = Slider::where('status', '=', 1)->where('visible', '=',  1)->get();
+        $testimonios = Testimony::where('status', '=', 1)->where('visible', '=',  1)->get();
 
-        return view('public.index', compact('general', 'logos', 'servicios'));
+        return view('public.index', compact('general', 'logos', 'servicios', 'estadisticas', 'comoLoHacemos', 'sliders', 'testimonios' ));
     }
 
     public function nosotros()

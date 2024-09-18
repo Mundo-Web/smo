@@ -7,6 +7,10 @@ use App\Http\Requests\StoreTestimonyRequest;
 use App\Http\Requests\UpdateTestimonyRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
+
 
 class TestimonyController extends Controller
 {
@@ -18,8 +22,6 @@ class TestimonyController extends Controller
         $testimony = Testimony::where("status", "=", true)->get();
 
         return view('pages.testimonies.index', compact('testimony'));
-
-        
     }
 
     /**
@@ -30,13 +32,34 @@ class TestimonyController extends Controller
         return view('pages.testimonies.create');
     }
 
+    public function saveImg($file, $route, $nombreImagen)
+    {
+      $manager = new ImageManager(new Driver());
+      $img = $manager->read($file);
+      $img->coverDown(1020, 1020, 'center');
+      if (!file_exists($route)) {
+        mkdir($route, 0777, true); // Se crea la ruta con permisos de lectura, escritura y ejecución
+      }
+      $img->save($route . $nombreImagen);
+    }
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        $testimony = new Testimony(); 
+        $testimony = new Testimony();
 
+
+
+        if ($request->hasFile('img')) {
+            $file = $request->file('img');
+            $routeImg = 'storage/images/testimonios/';
+            $nombreImagen = Str::random(10) . '_' . $file->getClientOriginalName();
+
+            $this->saveImg($file, $routeImg, $nombreImagen);
+
+            $testimony->img = $routeImg . $nombreImagen;
+        }
         $testimony->name = $request->name;
         $testimony->ocupation = $request->ocupation;
         $testimony->testimonie = $request->testimonie;
@@ -44,7 +67,7 @@ class TestimonyController extends Controller
         $testimony->visible = 1;
 
         $testimony->save();
-       
+
         return redirect()->route('testimonios.index')->with('success', 'Testimonio creado');
     }
 
@@ -71,8 +94,19 @@ class TestimonyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $testimony = Testimony::findOrfail($id); 
+        $testimony = Testimony::findOrfail($id);
 
+        $data = $request->all();
+        if ($request->hasFile('img')) {
+            $file = $request->file('img');
+            $routeImg = 'storage/images/testimonios/';
+            $nombreImagen = Str::random(10) . '_' . $file->getClientOriginalName();
+
+            $this->saveImg($file, $routeImg, $nombreImagen);
+
+            $testimony->img = $routeImg . $nombreImagen;
+            $data['img'] = $routeImg . $nombreImagen;
+        }
         // $testimony->name = $request->name;
         // $testimony->email = $request->email;
         // $testimony->ocupation = $request->ocupation;
@@ -80,7 +114,7 @@ class TestimonyController extends Controller
         // $testimony->ocupation = $request->ocupation;
         // $testimony->status = $request->status;
 
-        $testimony->update($request->all());
+        $testimony->update($data);
 
         $testimony->save();
 
@@ -99,7 +133,7 @@ class TestimonyController extends Controller
     {
         $id = $request->id;
         //Busco el servicio con id como parametro
-        $testimony = Testimony::findOrfail($id); 
+        $testimony = Testimony::findOrfail($id);
         //Modifico el status a false
         $testimony->status = false;
         //Guardo 
@@ -110,7 +144,7 @@ class TestimonyController extends Controller
     }
 
 
-    
+
     public function updateVisible(Request $request)
     {
         // Lógica para manejar la solicitud AJAX
@@ -122,12 +156,11 @@ class TestimonyController extends Controller
         $status = $request->status;
 
         $testimony = Testimony::findOrFail($id);
-        
+
         $testimony->$field = $status;
 
         $testimony->save();
 
-         return response()->json(['message' => 'Estado modificado.']);
-    
+        return response()->json(['message' => 'Estado modificado.']);
     }
 }

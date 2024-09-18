@@ -6,7 +6,7 @@
       <div
         class="col-span-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
         <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
-          <h2 class="font-semibold text-slate-800 dark:text-slate-100 text-2xl tracking-tight">Agregar nuevo beneficio
+          <h2 class="font-semibold text-slate-800 dark:text-slate-100 text-2xl tracking-tight">Agregar nueva Estadistica
           </h2>
         </header>
 
@@ -14,7 +14,7 @@
           <div class="rounded shadow-lg p-4 px-4 ">
             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
               <div class="md:col-span-5">
-                <label for="titulo">Titulo</label>
+                <label for="titulo">Numero</label>
                 <div class="relative mb-2  mt-2">
                   <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                     <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +35,7 @@
               </div>
 
               <div class="md:col-span-5">
-                <label for="titulo">Descripción corta</label>
+                <label for="titulo">Simblo</label>
                 <div class="relative mb-2  mt-2">
                   <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                     <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@
                 </div>
               </div>
               <div class="md:col-span-5">
-                <label for="descripcion">Descripción</label>
+                <label for="descripcion">Descripcion Corta</label>
                 <div class="relative mb-2  mt-2">
                   <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                     <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg"
@@ -94,12 +94,13 @@
 
               <div class="md:col-span-5 text-right mt-6 flex justify-between">
                 <div class="inline-flex items-end">
-                  <a href="{{ URL::previous() }}"  class="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded">Volver</a>
+                  <a href="{{ URL::previous() }}"
+                    class="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded">Volver</a>
                 </div>
                 <div class="inline-flex items-end">
                   <button type="submit"
                     class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">Guardar
-                    beneficio</button>
+                    Estadistica </button>
                 </div>
               </div>
             </div>
@@ -110,25 +111,6 @@
 
   </div>
 
-  <script>
-    $('document').ready(function() {
-
-      tinymce.init({
-        selector: '#descripcion',
-        height: 500,
-        plugins: [
-          'advlist', 'autolink', 'lists', 'link', 'charmap', 'preview',
-          'searchreplace', 'visualblocks', 'code', 'fullscreen',
-          'insertdatetime', 'table'
-        ],
-        toolbar: 'undo redo | blocks | ' +
-          'bold italic backcolor | alignleft aligncenter ' +
-          'alignright alignjustify | bullist numlist outdent indent | ' +
-          'removeformat | help',
-        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px;}'
-      });
-
-    })
-  </script>
+  <script></script>
 
 </x-app-layout>
