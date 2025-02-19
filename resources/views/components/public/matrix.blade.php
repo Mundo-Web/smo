@@ -33,6 +33,18 @@
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Index</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-12706LDS37"></script>
+    
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-12706LDS37');
+    </script>
+
 </head>
 
 <body>
