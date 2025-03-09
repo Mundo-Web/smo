@@ -61,7 +61,7 @@
     <div class="flex justify-end relative">
       <div class="fixed bottom-[36px] z-[10] right-[15px] md:right-[25px]">
         <a href="https://api.whatsapp.com/send?phone={{ $general->whatsapp }}&text={{ $general->mensaje_whatsapp }}"
-          target="_blank" class="">
+          target="_blank" class="" onclick="return gtag_report_conversion('https://smoconsultores.com/');">
           <img src="{{ asset('images/img/WhatsApp.png') }}" alt="whatsapp" class="w-20" />
         </a>
       </div>

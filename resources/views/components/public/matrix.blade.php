@@ -41,9 +41,9 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-      
         gtag('config', 'G-12706LDS37');
     </script>
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -53,6 +53,25 @@
     </script>
     <!-- End Google Tag Manager -->
     
+    <!-- Event snippet for Vista de página conversion page In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. --> 
+    <script> 
+        function gtag_report_conversion(url) { 
+            
+            var callback = function () { 
+                if (typeof(url) != 'undefined') { 
+                    window.location = url; 
+                } 
+            }; 
+
+            gtag('event', 'conversion', {
+                'send_to': 'AW-16873567744/QepiCOrG5p0aEIDs-O0-', 
+                'value': 1.0, 
+                'currency': 'PEN', 
+                'event_callback': callback 
+                });
+                return false; 
+        }
+    </script>
 </head>
 
 <body>

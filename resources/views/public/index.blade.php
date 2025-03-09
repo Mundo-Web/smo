@@ -2,26 +2,10 @@
 
 @section('css_importados')
   <style>
-    /*  @media(min-width:768px) {
-                                                                                                                                                      .fill_plomo, .fill_azul, .fill_verde{
-                                                                                                                                                          fill: #fff;
-                                                                                                                                                      }
-                                                                                                                                                  } */
-
     .logo_blanco {
       display: block;
     }
 
-    /*
-                                                                                                              .main {
-                                                                                                                background-image: url({{ asset('images/img/image_1.png') }})
-                                                                                                              }
-
-                                                                                                              @media(min-width; 768px) {
-                                                                                                                .main {
-                                                                                                                  background-image: url({{ asset('images/img/image_8.png') }})
-                                                                                                                }
-                                                                                                              } */
     @media(max-width: 768px) {
       .imgbgStyle {
         min-height: 606px;
@@ -47,7 +31,6 @@
           <h1
             class="text-text32 md:text-text56 font-archivo font-bold text-white leading-none md:leading-tight [text-shadow:_0_0_4px_rgb(0_0_0_/_40%)]">
             {{ $general->aboutus }}
-
           </h1>
           <p
             class="font-archivo text-text16 md:text-text18 text-white font-normal [text-shadow:_0_0_4px_rgb(0_0_0_/_40%)]">
