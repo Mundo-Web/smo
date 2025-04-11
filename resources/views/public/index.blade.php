@@ -31,9 +31,9 @@
 
   <main>
     <section class="main bg-cover bg-center bg-no-repeat swiper slider__headers" id="formulariollegada">
-      <div class="px-[5%] xl:px-[8%] grid grid-cols-1 lg:grid-cols-5 gap-7 xl:gap-16 py-40  absolute z-20">
+      <div class="w-full px-[5%] xl:px-[8%] grid grid-cols-1 lg:grid-cols-5 gap-7 xl:gap-16 py-40  absolute z-20">
         
-        <div class="md:col-span-3 w-full flex flex-col gap-5 justify-center" data-aos="fade-up" data-aos-offset="150">
+        <div class="md:col-span-3 w-full flex flex-col gap-5 justify-center max-w-2xl" data-aos="fade-up" data-aos-offset="150">
           <h2
             class="text-text32 md:text-4xl lg:text-5xl 2xl:text-6xl font-archivo font-bold text-white leading-none sm:leading-normal line-clamp-6">
             {{ $general->aboutus }}
@@ -55,7 +55,7 @@
 
         <div class="md:col-span-2 w-full flex flex-col gap-5">
            
-            <form action="" id="formContactos" class="flex flex-col gap-5 bg-white p-5 rounded-xl"  data-aos="fade-up" data-aos-offset="150">
+            <form action="" id="formContactos" class="flex flex-col gap-5 bg-white p-5 rounded-xl 2xl:p-8"  data-aos="fade-up" data-aos-offset="150">
               @csrf
               <h2 class="text-[#289A7B] font-archivo font-bold text-3xl 2xl:text-4xl text-left leading-tight">
                 Contáctanos

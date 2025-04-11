@@ -26,7 +26,7 @@
 
 @section('content')
     <main>
-        <section class="w-11/12 mx-auto flex flex-col gap-10 pt-44">
+        <section class="w-full px-[5%] xl:px-[8%] flex flex-col gap-10 pt-44">
             @if (!$nosotros->isEmpty())
                 @foreach ($nosotros as $nosotros)
                     <div class="grid grid-cols-1 md:grid-cols-2">
@@ -56,7 +56,7 @@
             </div>
         </section>
 
-        <section class="w-11/12 mx-auto flex flex-col gap-10 md:gap-20 pt-24 md:pt-32">
+        <section class="w-full px-[5%] xl:px-[8%] flex flex-col gap-10 md:gap-20 pt-24 md:pt-32">
             <div class="w-full md:max-w-[768px] mx-auto flex flex-col gap-2">
                 <h3 class="text-[#2E67A4] font-archivo text-text48 text-center font-bold">
                     Nuestros objetivos
@@ -118,7 +118,7 @@
         </section>
 
         <section>
-            <div class="flex flex-col gap-20 w-11/12 mx-auto py-32">
+            <div class="flex flex-col gap-20 w-full px-[5%] xl:px-[8%] py-32">
                 <div class="w-full md:max-w-[768px] mx-auto flex flex-col gap-3">
                     <h2 class="text-[#2E67A4] font-bold text-text48 font-archivo text-center leading-tight">
                         Nuestro Sello Distinguido:

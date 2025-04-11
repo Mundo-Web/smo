@@ -1,6 +1,6 @@
 <footer class="bg-[#289A7B]">
     <div
-      class="flex flex-col md:flex-row md:justify-between w-11/12 mx-auto py-10 gap-10"
+      class="flex flex-col md:flex-row md:justify-between w-full px-[5%] xl:px-[8%] py-10 gap-10"
     >
       <div class="flex flex-col gap-5" data-aos="fade-up" data-aos-offset="150">
         <div class="flex justify-start items-center">
@@ -40,7 +40,7 @@
             Navegador
           </p>
           <div
-            class="font-normal font-archivo text-text14 lg:text-text16 text-white flex flex-col gap-5"
+            class="font-normal font-archivo text-text14 lg:text-text16 text-white flex flex-col gap-2"
           >
             <a href="{{route('index')}}">Inicio</a>
             <a href="{{route('nosotros')}}">Nosotros</a>
@@ -56,7 +56,7 @@
             Dirección
           </p>
           <div
-            class="font-normal font-archivo text-text14 lg:text-text16 text-white flex flex-col gap-5"
+            class="font-normal font-archivo text-text14 lg:text-text16 text-white flex flex-col gap-2"
           >
             <p>{{$general->address}} - {{$general->inside}} </p>
             <p>{{$general->district}}, Lima</p>
@@ -67,10 +67,12 @@
       </div>
     </div>
 
-    <div
-      class="border-t border-[#FFFFFF] pt-5 pb-10 flex flex-col md:flex-row md:justify-start md:items-center text-white gap-2 w-11/12 mx-auto text-text12 lg:text-text14 font-normal" 
-    >
-      <p>Copyright &copy; 2023 Mundo Web. Reservados todos los derechos</p>
+    <div class="w-full px-[5%] xl:px-[8%]">
+      <div
+        class="border-t border-[#FFFFFF] pt-5 pb-10 flex flex-col md:flex-row md:justify-start md:items-center text-white gap-2 text-text12 lg:text-text14 font-normal" 
+      >
+        <p>Copyright &copy; 2023 Mundo Web. Reservados todos los derechos</p>
 
+      </div>
     </div>
   </footer>
