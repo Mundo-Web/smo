@@ -18,9 +18,9 @@
       }
     }
 
-    @media(min-width: 768px) {
+    @media(min-width: 1024px) {
       .imgbgStyle {
-        min-height: 700px;
+        min-height: 770px;
       }
     }
   </style>
@@ -31,11 +31,11 @@
 
   <main>
     <section class="main bg-cover bg-center bg-no-repeat swiper slider__headers" id="formulariollegada">
-      <div class="px-[5%] lg:px-[8%] grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-16 py-40 absolute z-20">
+      <div class="px-[5%] xl:px-[8%] grid grid-cols-1 lg:grid-cols-5 gap-7 xl:gap-16 py-40  absolute z-20">
         
-        <div class="w-full flex flex-col gap-5" data-aos="fade-up" data-aos-offset="150">
+        <div class="md:col-span-3 w-full flex flex-col gap-5 justify-center" data-aos="fade-up" data-aos-offset="150">
           <h2
-            class="text-text32 md:text-3xl lg:text-4xl xl:text-5xl font-archivo font-bold text-white leading-none sm:leading-normal line-clamp-6">
+            class="text-text32 md:text-4xl lg:text-5xl 2xl:text-6xl font-archivo font-bold text-white leading-none sm:leading-normal line-clamp-6">
             {{ $general->aboutus }}
           </h2>
           <p
@@ -53,34 +53,37 @@
           </div>
         </div>
 
-        <div class="w-full flex flex-col gap-5">
-            <form action="" id="formContactos" class="flex flex-col gap-5"  data-aos="fade-up" data-aos-offset="150">
+        <div class="md:col-span-2 w-full flex flex-col gap-5">
+           
+            <form action="" id="formContactos" class="flex flex-col gap-5 bg-white p-5 rounded-xl"  data-aos="fade-up" data-aos-offset="150">
               @csrf
+              <h2 class="text-[#289A7B] font-archivo font-bold text-3xl 2xl:text-4xl text-left leading-tight">
+                Contáctanos
+              </h2>
               <div>
                 <input required type="text" name="full_name" placeholder="Nombre completo"
-                  class="bg-white bg-opacity-40 placeholder:text-white font-archivo text-text16 lg:text-text18 font-normal text-white focus:font-semibold w-full py-5 px-5 border-b border-white transition-all focus:outline-0 focus:border-0 ring-0 focus:ring-0 focus:border-b focus:border-b-white border-t-0 border-l-0 border-r-0" />
+                  class="bg-white bg-opacity-40 placeholder:text-[#12121266] font-archivo text-text16 lg:text-text18 font-normal text-[#173525] focus:font-semibold w-full py-5 px-5 border-b border-[#173525] transition-all focus:outline-0 focus:border-0 ring-0 focus:ring-0 focus:border-b focus:border-b-[#173525] border-t-0 border-l-0 border-r-0" />
               </div>
     
               <div>
                 <input maxlength="9" required type="tel" name="phone" placeholder="Teléfono"
                   id="telefonoContacto"
-                  class="bg-white bg-opacity-40 placeholder:text-white font-archivo text-text16 lg:text-text18 font-normal text-white focus:font-semibold w-full py-5 px-5 border-b border-white transition-all focus:outline-0 focus:border-0 ring-0 focus:ring-0 focus:border-b focus:border-b-white border-t-0 border-l-0 border-r-0" />
+                  class="bg-white bg-opacity-40 placeholder:text-[#12121266] font-archivo text-text16 lg:text-text18 font-normal text-[#173525] focus:font-semibold w-full py-5 px-5 border-b border-[#173525] transition-all focus:outline-0 focus:border-0 ring-0 focus:ring-0 focus:border-b focus:border-b-[#173525] border-t-0 border-l-0 border-r-0" />
               </div>
     
               <div>
                 <input required type="email" name="email" placeholder="E-mail" id="emailContacto"
-                  class="bg-white bg-opacity-40 placeholder:text-white font-archivo text-text16 lg:text-text18 font-normal text-white focus:font-semibold w-full py-5 px-5 border-b border-white transition-all focus:outline-0 focus:border-0 ring-0 focus:ring-0 focus:border-b focus:border-b-white border-t-0 border-l-0 border-r-0" />
+                  class="bg-white bg-opacity-40 placeholder:text-[#12121266] font-archivo text-text16 lg:text-text18 font-normal text-[#173525] focus:font-semibold w-full py-5 px-5 border-b border-[#173525] transition-all focus:outline-0 focus:border-0 ring-0 focus:ring-0 focus:border-b focus:border-b-[#173525] border-t-0 border-l-0 border-r-0" />
               </div>
-    
+              
               <div>
                 <div class="flex flex-col gap-2 z-[45]">
-                  <div>
     
                     <div class="dropdown w-full">
                       <div class="input-box focus:outline-none text-opacity-40 font-archivo text-text16 lg:text-text18 font-normal text-[#15614C] focus:font-semibold border-b border-[#173525] py-9">
                         <span
-                          class="bg-white bg-opacity-40 placeholder:text-white font-archivo text-text16 lg:text-text18 font-normal text-white focus:font-semibold w-full py-5 px-5 border-b border-white transition-all focus:outline-0 focus:border-0 ring-0 focus:ring-0 focus:border-b focus:border-b-white border-t-0 border-l-0 border-r-0"
-                          id="span-opacity">Tipo de servicios
+                          class="bg-white bg-opacity-40 placeholder:text-[#12121266] font-archivo text-text16 lg:text-text18 font-normal text-[#12121266] focus:font-semibold w-full py-5 px-5 border-b border-white transition-all focus:outline-0 focus:border-0 ring-0 focus:ring-0 focus:border-b focus:border-b-white border-t-0 border-l-0 border-r-0"
+                          id="selected-service">Tipo de servicios
                         </span>
                       </div>
                       
@@ -88,11 +91,11 @@
                         
                         <div class="w-full">
                           <input type="radio" id="id0" class="radio" name="service_product"
-                            value="Tipo de servicios" />
+                            value="Selecciona servicio" />
     
                           <label for="id0"
                             class="text-text16 md:text-text18 text-[#121212] text-opacity-40 typeServicios font-archivo">
-                            Tipo de servicios
+                            Selecciona servicio
                           </label>
                         </div>
     
@@ -109,11 +112,10 @@
                         
                       </div>
                     </div>
-                  </div>
                 </div>
               </div>
-    
-              <div class="flex justify-center items-center pb-20">
+              
+              <div class="flex justify-center items-center">
                 <button type="submit"
                   class="text-[#FFFFFF] font-archivo font-bold text-text16 lg:text-text20 w-full bg-[#289A7B] py-4 px-10 text-center rounded-lg">
                   Enviar
@@ -528,7 +530,37 @@
       loop: false,
     });
   </script>
+  {{-- <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const inputBox = document.querySelector('.input-box');
+      const list = document.querySelector('.list');
+      const selectedService = document.getElementById('selected-service');
+      const radioInputs = document.querySelectorAll('.radio');
 
+      // Toggle dropdown
+      inputBox.addEventListener('click', function(e) {
+        e.stopPropagation();
+        list.classList.toggle('open');
+        inputBox.classList.toggle('open');
+      });
+
+      // Selección de servicio
+      radioInputs.forEach(item => {
+        item.addEventListener('change', function() {
+          selectedService.textContent = this.value;
+          selectedService.classList.remove('placeholder:text-[#12121266]');
+          list.classList.remove('open');
+          inputBox.classList.remove('open');
+        });
+      });
+
+      // Cerrar al hacer clic fuera
+      document.addEventListener('click', function() {
+        list.classList.remove('open');
+        inputBox.classList.remove('open');
+      });
+    });
+  </script> --}}
   <script>
     var input = document.querySelector(".input-box");
 
@@ -550,8 +582,8 @@
     var rad = document.querySelectorAll(".radio");
     rad.forEach((item) => {
       item.addEventListener("change", () => {
-        /* input.innerHTML = item.nextElementSibling.innerHTML;
-        input.click(); */
+        input.innerHTML = item.nextElementSibling.innerHTML;
+        input.click();
         span.textContent = item.nextElementSibling.textContent;
         if (span.textContent.trim() === "Tipo de servicios") {
           span.classList.add("opacity-40");
@@ -563,13 +595,6 @@
       });
     });
 
-    /* var valorSeleccionado = $('input[name="service_product"]:checked').val();
-    if (
-      valorSeleccionado === "Tipo de Servicios" ||
-      valorSeleccionado === undefined
-    ) {
-      console.log("click");
-    } */
   </script>
 
   <script>
