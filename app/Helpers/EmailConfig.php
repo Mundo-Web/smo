@@ -12,15 +12,15 @@ class EmailConfig
         $mail = new PHPMailer(true);
         // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
+        $mail->Host = 'mail.smoconsultores.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'diegomartinez1996x@gmail.com';
-        $mail->Password = 'piqutsbcfdzsrnkp';
+        $mail->Username = 'info@smoconsultores.com';
+        $mail->Password = '5m0C0n5ul70r35';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
         $mail->Subject = '' . $name . ', ' .$mensaje;
         $mail->CharSet = 'UTF-8';
-        $mail->setFrom('diegomartinez1996x@gmail.com', 'SMO Consultores');
+        $mail->setFrom('info@smoconsultores.com', 'SMO Consultores');
         return $mail;
     }
 }
