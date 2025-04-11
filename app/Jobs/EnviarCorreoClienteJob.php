@@ -10,7 +10,6 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Http\Request;
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Log;
-use App\Services\MailService;
 
 class EnviarCorreoClienteJob implements ShouldQueue
 {
@@ -28,20 +27,17 @@ class EnviarCorreoClienteJob implements ShouldQueue
     /**
      * Execute the job.
      */
-    public function handle(MailService $mailService): void
+    public function handle(): void
     {
         $data = $this->data;
         try {
-            $mailService->envioCorreoAdmin($this->data);
-            $mailService->envioCorreoCliente($this->data);
+            IndexController::envioCorreoAdmin($data);
+            IndexController::envioCorreoCliente($data);
         } catch (\Throwable $th) {
             Log::error('Error al enviar correos: ' . $th->getMessage(), [
                 'exception' => $th,
                 'data' => $this->data
             ]);
-            
-            // Reintentar el job más tarde si falla
-            $this->release(60); // 60 segundos antes de reintentar
         }
     }
 }
