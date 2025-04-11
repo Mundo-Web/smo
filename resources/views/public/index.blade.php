@@ -512,7 +512,7 @@
       initialSlide: 0,
       loop: true,
       autoplay: {
-        delay: 1500,
+        delay: 500,
         disableOnInteraction: false,
       },
       breakpoints: {
