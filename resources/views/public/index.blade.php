@@ -77,7 +77,7 @@
             background-color: #ffffff !important;
             color: #12121266 !important;
         }
-        
+
         /* Para pantallas grandes */
         @media (min-width: 1536px) {
             .select2-container--default .select2-selection--single .select2-selection__rendered {
@@ -129,7 +129,7 @@
 
         <div class="md:col-span-2 w-full flex flex-col gap-5">
            
-            <form action="" id="formContactos" class="flex flex-col gap-5 bg-white p-5 rounded-xl 2xl:p-8 2xl:ml-24 2xl:max-w-lg"  data-aos="fade-up" data-aos-offset="150">
+            <form action="" id="formContactos" class="relative flex flex-col gap-5 bg-white p-5 rounded-xl 2xl:p-8 2xl:ml-24 2xl:max-w-lg"  data-aos="fade-up" data-aos-offset="150">
               @csrf
               <h2 class="text-[#289A7B] font-archivo font-bold text-3xl 2xl:text-4xl text-left leading-tight">
                 Contáctanos
@@ -675,40 +675,3 @@
 @stop
 
 @stop
-
-                                          {{-- <div class="w-full">
-                                                <input type="radio" id="id1" class="radio"
-                                                    name="service_product" value="Gestión ISO"/>
-
-                                                <label for="id1"
-                                                    class="text-text16 md:text-text18 text-[#121212] text-opacity-40 typeServicios font-archivo">
-                                                    Gestión ISO
-                                                </label>
-                                            </div>
-
-                                            <div class="w-full">
-                                                <input type="radio" id="id2" class="radio"
-                                                    name="service_product" />
-                                                <label for="id2"
-                                                    class="text-text16 md:text-text18 text-[#121212] text-opacity-40 typeServicios font-archivo">
-                                                    Capacitaciones
-                                                </label>
-                                            </div>
-
-                                            <div class="w-full">
-                                                <input type="radio" id="id3" class="radio"
-                                                    name="service_product" />
-                                                <label for="id3"
-                                                    class="text-text16 md:text-text18 text-[#121212] text-opacity-40 typeServicios font-archivo">
-                                                    Inspecciones
-                                                </label>
-                                            </div>
-
-                                            <div class="w-full">
-                                                <input type="radio" id="id4" class="radio"
-                                                    name="service_product" />
-                                                <label for="id4"
-                                                    class="text-text16 md:text-text18 text-[#121212] text-opacity-40 typeServicios font-archivo">
-                                                    Auditorías
-                                                </label>
-                                          </div> --}}
