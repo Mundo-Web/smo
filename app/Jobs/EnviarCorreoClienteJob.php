@@ -14,7 +14,7 @@ class EnviarCorreoClienteJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    private $data;
+    protected $data;
     /**
      * Create a new job instance.
      */

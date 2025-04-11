@@ -164,7 +164,7 @@ class IndexController extends Controller
             ];
             $request->validate($reglasValidacion, $mensajes);
             $formlanding = Message::create($data);
-            
+
             EnviarCorreoClienteJob::dispatchAfterResponse($formlanding);
 
             return response()->json(['message' => 'Mensaje enviado con exito']);
@@ -221,7 +221,8 @@ class IndexController extends Controller
         $name = "Administrador";
         $mensaje = "tienes un nuevo mensaje - SMO Consultores";
         $mail = EmailConfig::config($name, $mensaje);
-        $emailadmin = "diego.martinez.r@tecsup.edu.pe";
+        $general = General::first();
+        $emailadmin = $general->email;
         $baseUrl = 'https://' . $_SERVER['HTTP_HOST'] . '/mail';
         $baseUrllink = 'https://' . $_SERVER['HTTP_HOST'] . '/';
         try {
