@@ -172,6 +172,37 @@ class IndexController extends Controller
         }
     }
 
+    public function guardarWsp(Request $request)
+    {
+        $data = $request->all();
+        $data['full_name'] = $request->full_name;
+
+        try {
+            $reglasValidacion = [
+                'full_name' => 'required|string|max:255',
+                'email' => 'required|email|max:255',
+                'phone' => 'required|string|max:99999999999',
+            ];
+            $mensajes = [
+                'full_name.required' => 'El campo nombre es obligatorio.',
+                'email.required' => 'El campo correo electrónico es obligatorio.',
+                'email.max' => 'El campo correo electrónico no puede tener más de :max caracteres.',
+                'phone.required' => 'El campo teléfono es obligatorio.',
+                'phone.integer' => 'El campo teléfono debe ser un número entero.',
+            ];
+
+            $request->validate($reglasValidacion, $mensajes);
+
+            $formlanding = Message::create($data);
+            $this->envioCorreoAdmin($formlanding);
+            $this->envioCorreoCliente($formlanding);
+
+            return response()->json(['message' => 'Mensaje enviado con exito']);
+        } catch (ValidationException $e) {
+            return response()->json(['message' => $e->validator->errors()], 400);
+        }
+    }
+
     public function saveImg($file, $route, $nombreImagen)
     {
         $manager = new ImageManager(new Driver());

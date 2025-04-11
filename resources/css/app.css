@@ -67,9 +67,6 @@ li.active p {
     @apply w-full h-[15px]  outline-none cursor-pointer flex items-center flex-row-reverse justify-between relative;
 }
 
-.input-box::before {
-    @apply content-[''] block w-[15px] h-[15px] bg-cover bg-no-repeat bg-center;
-}
 .list {
     @apply relative top-[100%] left-0 w-full bg-white flex items-center justify-between flex-col max-h-0 transition-all duration-200 ease-out mt-5;
 }

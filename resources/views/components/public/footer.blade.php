@@ -15,15 +15,19 @@
 
         <div class="flex justify-start items-center gap-5" data-aos="fade-up" data-aos-offset="150">
           @if ($general->instagram != null)
-          <a target="_blank" href="https://{{ $general->instagram }}"> <img src="{{asset('images/svg/image_3.svg')}}" alt="instagram" /></a>
+          <a target="_blank" href="{{ $general->instagram }}" class="cursor-pointer"> <img src="{{asset('images/svg/image_3.svg')}}" alt="instagram" /></a>
           @endif
 
           @if ($general->facebook != null)
-          <a target="_blank" href="https://{{ $general->facebook }}"> <img src="{{asset('images/svg/image_4.svg')}}" alt="facebook" /></a>
+          <a target="_blank" href="{{ $general->facebook }}" class="cursor-pointer"> <img src="{{asset('images/svg/image_4.svg')}}" alt="facebook" /></a>
           @endif
 
           @if ($general->youtube != null)
-          <a target="_blank" href="https://{{ $general->youtube }}"> <img src="{{asset('images/svg/image_5.svg')}}" alt="youtube" /></a>
+          <a target="_blank" href="{{ $general->youtube }}" class="cursor-pointer"> <img src="{{asset('images/svg/image_5.svg')}}" alt="youtube" /></a>
+          @endif
+
+          @if ($general->twitter != null)
+          <a target="_blank" href="{{ $general->twitter }}" class="cursor-pointer"> <div class="flex flex-row items-end"><i class="fa-brands fa-linkedin-in text-white text-xl"></i></div> </a>
           @endif
         </div>
       </div>

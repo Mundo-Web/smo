@@ -54,6 +54,8 @@ Route::get('/gestion/{id}', [IndexController::class, 'gestion'] )->name('gestion
 Route::get('/contacto', [IndexController::class, 'contacto'] )->name('contacto');
 Route::get('/agradecimiento', [IndexController::class, 'agradecimiento'] )->name('agradecimiento');
 Route::post('guardarContacto', [IndexController::class, 'guardarContacto'] )->name('guardarContacto');
+Route::post('/guardarWsp', [IndexController::class, 'guardarWsp'])->name('guardarWsp');
+
 /* Route::get('/nosotros', [IndexController::class, 'nosotros'] )->name('nosotros');
 Route::get('/servicios', [IndexController::class, 'servicios'] )->name('servicios');
 Route::get('/comentario', [IndexController::class, 'comentario'] )->name('comentario');

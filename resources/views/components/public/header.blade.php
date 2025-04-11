@@ -46,23 +46,129 @@
             <a href="{{route('contacto')}}" class="text_azul">Contacto</a>
           </li>
 
-          <li class="w-full">
-            <a
-            target="_blank" href="https://api.whatsapp.com/send?phone={{ $general->whatsapp }}&text={{ $general->mensaje_whatsapp }}"
-              class="bg-[#289A7B] py-3 w-full md:w-auto md:py-4 rounded-full px-5 inline-block text-center text-white text-text16"
+          {{-- <li class="w-full">
+            <a id="iraformulario" class="bg-[#289A7B] py-3 w-full md:w-auto md:py-4 rounded-full px-5 inline-block text-center text-white text-text16"
               >Quiero una cita</a
             >
-          </li>
+          </li> --}}
         </ul>
       </nav>
     </header>
 
+    {{-- onclick="return gtag_report_conversion('https://smoconsultores.com/');" --}}
     {{-- Whatsapp --}}
     <div class="flex justify-end relative">
       <div class="fixed bottom-[36px] z-[10] right-[15px] md:right-[25px]">
-        <a href="https://api.whatsapp.com/send?phone={{ $general->whatsapp }}&text={{ $general->mensaje_whatsapp }}"
-          target="_blank" class="" onclick="return gtag_report_conversion('https://smoconsultores.com/');">
-          <img src="{{ asset('images/img/WhatsApp.png') }}" alt="whatsapp" class="w-20" />
+        <a 
+          target="_blank" id="whatsapp-toggle">
+          <img src="{{ asset('images/img/WhatsApp.png') }}" alt="whatsapp" class="w-16 h-16 md:w-20 md:h-20" />
         </a>
       </div>
     </div>
+
+    <div class="fixed bottom-24 right-6 lg:bottom-40 z-[99] shadow-xl hidden animate-once animate-duration-1000"
+        id="whatsapp-chat">
+        <div class="w-72 h-auto rounded-xl">
+            <div class="bg-green-500 font-outfitRegular text-white text-center py-3 rounded-t-xl"> Whatsapp Chat </div>
+            <div class="bg-white shadow-xl hover:bg-slate-100 cursor-pointer">
+                <div class="flex flex-row p-3">
+                    <div class="px-2">
+                        <div class="flex flex-row justify-start items-center gap-3">
+                            <img class="w-10" src="{{ asset('images/img/asistente.png') }}" />
+                            <div class="flex flex-col justify-start items-start">
+                                <p class="text-slate-400 font-outfitRegular text-text14 ">Agente Virtual</p>
+                                <div class="flex flex-row items-center justify-start gap-2">
+                                    <div class="w-2 h-2 bg-green-400 rounded-full ml-1"></div>
+                                    <p class="text-slate-400 font-outfitRegular text-text12">En Línea </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form class="space-y-2 mt-3" id="dataWhatsapp">
+                            @csrf
+                            <input type="text" name="contact_name_wsp" placeholder="Nombre Completo" required
+                                class="border-green-500 border-2 focus:!border-green-500 focus:!border-2 focus:!ring-0 focus:!ring-transparent
+                                  text-gray-600 font-outfitRegular w-full py-2 px-2 rounded-xl text-text16  placeholder-opacity-25 font-light  bg-white">
+
+                            <input type="email" name="contact_email_wsp" id="email_wsp"
+                                placeholder="Correo Electrónico" required
+                                class="border-green-500 border-2 focus:!border-green-500 focus:!border-2 focus:!ring-0 focus:!ring-transparent
+                                    text-gray-600 font-outfitRegular w-full py-2 px-2 rounded-xl text-text16  placeholder-opacity-25 font-light  bg-white">
+
+                            <input type="text" name="contact_phone_wsp" id="telefono_wsp" placeholder="Teléfono"
+                                required
+                                class="border-green-500 border-2 focus:!border-green-500 focus:!border-2 focus:!ring-0 focus:!ring-transparent
+                                      text-gray-600 font-outfitRegular w-full py-2 px-2 rounded-xl text-text16  placeholder-opacity-25 font-light  bg-white">
+
+                            <button id='procesarSolicitud2'
+                                class="font-outfitRegular font-semibold text-white py-2 px-2 bg-green-500 justify-center items-center rounded-xl inline-flex text-text16 w-full">
+                                <span>Enviar</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+      document.getElementById('whatsapp-toggle').addEventListener('click', function() {
+          var chatBox = document.getElementById('whatsapp-chat');
+          if (chatBox.classList.contains('hidden')) {
+              chatBox.classList.remove('hidden');
+              chatBox.classList.add('animate-fade-up');
+          } else {
+              chatBox.classList.add('hidden');
+              chatBox.classList.remove('animate-fade-up');
+          }
+      });
+    </script>
+
+    <script>
+      $('#procesarSolicitud2').on('click', function() {
+          event.preventDefault();
+
+          let formulario = $('#dataWhatsapp').serialize()
+
+          fetch("{{ route('guardarWsp') }}", {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                      _token: $('[name="_token"]').val(),
+                      full_name: $('[name="contact_name_wsp"]').val(),
+                      email: $('[name="contact_email_wsp"]').val(),
+                      phone: `51${$('[name="contact_phone_wsp"]').val()}`,
+                  })
+              })
+              .then(async res => {
+                  const data = await res.json()
+                  if (!res.ok) throw new Error(data?.message ?? 'Ocurrio un error inesperado')
+                  return data
+              })
+              .then(response => {
+                  Swal.close();
+                  Swal.fire({
+                      title: response.message,
+                      icon: "success",
+                  }).then((result) => {
+
+                      if (result.isConfirmed) {
+                          window.open('https://api.whatsapp.com/send?phone={{ $general->whatsapp }}&text={{ urlencode($general->mensaje_whatsapp) }}', '_blank');
+                          window.location.href = "https://smoconsultores.com/agradecimiento?form=whastapp";
+                      }
+                  });
+
+              }).catch((error) => {
+                  Swal.close();
+                  Swal.fire({
+                      title: error,
+                      icon: "error",
+                  });
+              })
+
+      })
+    </script>
+    
