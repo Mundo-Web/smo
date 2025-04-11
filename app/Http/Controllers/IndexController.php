@@ -164,7 +164,7 @@ class IndexController extends Controller
             ];
             $request->validate($reglasValidacion, $mensajes);
             $formlanding = Message::create($data);
-
+            
             EnviarCorreoClienteJob::dispatchAfterResponse($formlanding);
 
             return response()->json(['message' => 'Mensaje enviado con exito']);

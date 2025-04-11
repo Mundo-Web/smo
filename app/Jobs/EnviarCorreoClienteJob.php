@@ -9,6 +9,8 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Http\Request;
 use App\Http\Controllers\IndexController;
+use Illuminate\Support\Facades\Log;
+use App\Services\MailService;
 
 class EnviarCorreoClienteJob implements ShouldQueue
 {
@@ -26,12 +28,12 @@ class EnviarCorreoClienteJob implements ShouldQueue
     /**
      * Execute the job.
      */
-    public function handle(): void
+    public function handle(MailService $mailService): void
     {
         $data = $this->data;
         try {
-            $mailService->sendAdminEmail($this->data);
-            $mailService->sendClientEmail($this->data);
+            $mailService->envioCorreoAdmin($this->data);
+            $mailService->envioCorreoCliente($this->data);
         } catch (\Throwable $th) {
             Log::error('Error al enviar correos: ' . $th->getMessage(), [
                 'exception' => $th,
