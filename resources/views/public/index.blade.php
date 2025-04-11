@@ -160,8 +160,8 @@
   </section>
 
   @if ($servicios->count() > 0)
-    <section id="servicios">
-      <div class="w-full px-[5%] xl:px-[8%] md:w-[768px] pt-10 lg:pt-20">
+    <section id="servicios" class="w-full px-[5%] xl:px-[8%] ">
+      <div class="md:w-[768px] pt-10 lg:pt-20">
         <h3 class="text-[#289A7B] font-archivo font-semibold text-text20 text-center">
           Servicios
         </h3>
