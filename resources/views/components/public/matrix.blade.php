@@ -154,12 +154,6 @@
                 return;
             };
 
-            var valorSeleccionado = $('input[name="service_product"]:checked').val();
-            if (valorSeleccionado === "Tipo de servicios" || valorSeleccionado === undefined) {
-                alerta("Debe seleccionar un servicio")
-                return;
-            }
-
 
             Swal.fire({
 
