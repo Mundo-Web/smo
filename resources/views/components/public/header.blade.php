@@ -1,5 +1,5 @@
 <header
-      class="absolute flex justify-between w-11/12 mx-auto left-0 right-0 py-5 z-[200]"
+      class="absolute flex justify-between w-full px-[5%] xl:px-[8%] left-0 right-0 py-5 z-[200]"
     >
       <div class="flex justify-center items-center z-40">
         <a href="{{route('index')}}">

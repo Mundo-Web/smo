@@ -204,7 +204,7 @@
   @endif
 
   <section>
-    <div class="w-full md:w-11/12 mx-auto pt-20">
+    <div class="w-fullpx-[5%] xl:px-[8%] pt-20">
       <div class="flex flex-col md:flex-row gap-16 md:gap-20">
         <div class="order-2 md:order-1 basis-1/2">
           <img src="{{ asset('images/img/image_9.png') }}" alt="" class="hidden md:block w-full" />
@@ -241,7 +241,7 @@
   </section>
 
   <section>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 w-full md:w-11/12 mx-auto pt-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 w-full px-[5%] xl:px-[8%] pt-20">
       <div class="w-11/12 mx-auto md:w-full flex flex-col justify-center gap-10">
         <div class="flex flex-col gap-5">
           <h3 class="text-[#289A7B] font-archivo font-semibold text-text16 lg:text-text18">
@@ -278,9 +278,9 @@
     </div>
   </section>
 
-  <section class="pt-20">
+  {{-- <section class="pt-20">
     <div class="bg-[#289A7B]">
-      <div class="w-11/12 mx-auto flex justify-center items-center py-32">
+      <div class="w-11/12 mx-auto flex justify-center items-center py-10 lg:py-16">
         <div class="swiper swiper-container ">
           <div class="swiper-wrapper">
             @foreach ($testimonios as $item)
@@ -336,7 +336,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> --}}
 
   {{-- <section>
     <div class="flex justify-between pt-20 w-11/12 mx-auto">
