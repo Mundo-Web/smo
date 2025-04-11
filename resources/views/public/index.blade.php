@@ -23,6 +23,12 @@
         min-height: 770px;
       }
     }
+
+    @media(min-width: 1600px) {
+      .imgbgStyle {
+        min-height: 800px;
+      }
+    }
   </style>
 @stop
 
@@ -35,11 +41,11 @@
         
         <div class="md:col-span-3 w-full flex flex-col gap-5 justify-center max-w-2xl" data-aos="fade-up" data-aos-offset="150">
           <h2
-            class="text-text32 md:text-4xl lg:text-5xl 2xl:text-6xl font-archivo font-bold text-white leading-none sm:leading-normal line-clamp-6">
+            class="text-text32 md:text-4xl lg:text-5xl 2xl:text-7xl font-archivo font-bold text-white leading-none sm:leading-normal line-clamp-6">
             {{ $general->aboutus }}
           </h2>
           <p
-            class="font-archivo text-text16 md:text-text18 text-white font-normal [text-shadow:_0_0_4px_rgb(0_0_0_/_40%)]">
+            class="font-archivo text-text16 md:text-text18 2xl:text-2xl text-white font-normal [text-shadow:_0_0_4px_rgb(0_0_0_/_40%)]">
             {{ $general->htop }}
           </p>
 
@@ -55,7 +61,7 @@
 
         <div class="md:col-span-2 w-full flex flex-col gap-5">
            
-            <form action="" id="formContactos" class="flex flex-col gap-5 bg-white p-5 rounded-xl 2xl:p-8"  data-aos="fade-up" data-aos-offset="150">
+            <form action="" id="formContactos" class="flex flex-col gap-5 bg-white p-5 rounded-xl 2xl:p-8 2xl:ml-24 2xl:max-w-lg"  data-aos="fade-up" data-aos-offset="150">
               @csrf
               <h2 class="text-[#289A7B] font-archivo font-bold text-3xl 2xl:text-4xl text-left leading-tight">
                 Contáctanos
@@ -133,7 +139,7 @@
                 @foreach ($sliders as $imagen)
                   <div class="swiper-slide">
                     <img src="{{ asset($imagen->url_image . $imagen->name_image) }}" alt=""
-                      class="object-cover object-top w-full h-full imgbgStyle max-h-[700px]">
+                      class="object-cover object-top w-full h-full imgbgStyle max-h-[700px] 2xl:max-h-[800px]">
                   </div>
                 @endforeach
             </div>
