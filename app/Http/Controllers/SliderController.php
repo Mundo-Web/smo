@@ -51,7 +51,7 @@ class SliderController extends Controller
 
             $nombreImagen = Str::random(10) . '_' . $request->file('imagen')->getClientOriginalName();
             $img =  $manager->read($request->file('imagen'));
-            $img->coverDown(1308, 1020, 'center');
+            // $img->coverDown(1308, 1020, 'center');
             $ruta = 'storage/images/slider/';
            
             if (!file_exists($ruta)) {
