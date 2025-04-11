@@ -30,9 +30,16 @@ class EnviarCorreoClienteJob implements ShouldQueue
     {
         $data = $this->data;
         try {
-        IndexController::envioCorreoAdmin($data);
-        IndexController::envioCorreoCliente($data);
+            $mailService->sendAdminEmail($this->data);
+            $mailService->sendClientEmail($this->data);
         } catch (\Throwable $th) {
+            Log::error('Error al enviar correos: ' . $th->getMessage(), [
+                'exception' => $th,
+                'data' => $this->data
+            ]);
+            
+            // Reintentar el job más tarde si falla
+            $this->release(60); // 60 segundos antes de reintentar
         }
     }
 }
