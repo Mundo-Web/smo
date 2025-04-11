@@ -142,7 +142,7 @@
   </section>
 
   <section class="bg-[#289A7B] z-[100]">
-    <div class="w-full md:w-10/12 mx-auto py-10" data-aos="fade-up" data-aos-offset="150">
+    <div class="w-full px-[5%] xl:px-[8%] py-10" data-aos="fade-up" data-aos-offset="150">
       <h2
         class="font-bold font-archivo text-text16 md:text-text20 text-center text-white pb-5 w-11/12 mx-auto md:w-full">
         Con la confianza de las mejores empresas
@@ -161,7 +161,7 @@
 
   @if ($servicios->count() > 0)
     <section id="servicios">
-      <div class="w-11/12 md:w-[768px] mx-auto pt-20">
+      <div class="w-full px-[5%] xl:px-[8%] md:w-[768px] pt-10 lg:pt-20">
         <h3 class="text-[#289A7B] font-archivo font-semibold text-text20 text-center">
           Servicios
         </h3>
@@ -204,7 +204,7 @@
   @endif
 
   <section>
-    <div class="w-fullpx-[5%] xl:px-[8%] pt-20">
+    <div class="w-full px-[5%] xl:px-[8%] pt-10 lg:pt-20">
       <div class="flex flex-col md:flex-row gap-16 md:gap-20">
         <div class="order-2 md:order-1 basis-1/2">
           <img src="{{ asset('images/img/image_9.png') }}" alt="" class="hidden md:block w-full" />
@@ -241,7 +241,7 @@
   </section>
 
   <section>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 w-full px-[5%] xl:px-[8%] pt-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 w-full px-[5%] xl:px-[8%] py-10 lg:py-20">
       <div class="w-11/12 mx-auto md:w-full flex flex-col justify-center gap-10">
         <div class="flex flex-col gap-5">
           <h3 class="text-[#289A7B] font-archivo font-semibold text-text16 lg:text-text18">
