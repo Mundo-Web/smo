@@ -512,8 +512,7 @@
       initialSlide: 0,
       loop: true,
       autoplay: {
-        delay: 500,
-        disableOnInteraction: false,
+        delay: 1000,
       },
       breakpoints: {
         0: {
@@ -523,7 +522,6 @@
         768: {
           slidesPerView: 6,
           centeredSlides: false,
-          autoplay: false,
         },
       },
     });
