@@ -61,7 +61,7 @@
       <div class="fixed bottom-[36px] z-[10] right-[15px] md:right-[25px]">
         <a 
           target="_blank" id="whatsapp-toggle">
-          <img src="{{ asset('images/img/WhatsApp.png') }}" alt="whatsapp" class="w-16 h-16 md:w-20 md:h-20" />
+          <img src="{{ asset('images/img/WhatsApp.png') }}" alt="whatsapp" class="cursor-pointer w-16 h-16 md:w-20 md:h-20" />
         </a>
       </div>
     </div>
