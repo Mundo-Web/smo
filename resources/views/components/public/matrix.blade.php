@@ -183,12 +183,7 @@
 
                 success: function(response) {
 
-                    const span = document.getElementById('span-opacity');
-                    span.textContent = 'Tipo de servicios';
-                    span.classList.add('opacity-40');
-
                     Swal.close();
-
                     Swal.fire({
                         title: response.message,
                         icon: "success",
