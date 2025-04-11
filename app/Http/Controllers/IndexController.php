@@ -164,6 +164,7 @@ class IndexController extends Controller
             ];
             $request->validate($reglasValidacion, $mensajes);
             $formlanding = Message::create($data);
+            
             $this->envioCorreoAdmin($formlanding);
             $this->envioCorreoCliente($formlanding);
             //EnviarCorreoClienteJob::dispatchAfterResponse($formlanding);
