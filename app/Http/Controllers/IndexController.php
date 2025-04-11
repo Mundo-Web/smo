@@ -35,6 +35,7 @@ use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use App\Jobs\EnviarCorreoClienteJob;
 
 use function PHPUnit\Framework\isNull;
 
@@ -163,8 +164,8 @@ class IndexController extends Controller
             ];
             $request->validate($reglasValidacion, $mensajes);
             $formlanding = Message::create($data);
-            $this->envioCorreoAdmin($formlanding);
-            $this->envioCorreoCliente($formlanding);
+            
+            EnviarCorreoClienteJob::dispatchAfterResponse($formlanding);
 
             return response()->json(['message' => 'Mensaje enviado con exito']);
         } catch (ValidationException $e) {
