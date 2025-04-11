@@ -8,13 +8,13 @@
 
     @media(max-width: 429px) {
       .imgbgStyle {
-        min-height: 1000px;
+        min-height: 1050px;
       }
     }
 
     @media(min-width: 430px) {
       .imgbgStyle {
-        min-height: 970px;
+        min-height: 1000px;
       }
     }
 
@@ -29,6 +29,74 @@
         min-height: 800px;
       }
     }
+
+        /* Estilo cuando está enfocado */
+        .select2-container--default.select2-container--focus .select2-selection--single {
+            border-color: transparent !important;
+            outline: 0 !important;
+            font-family: 'Archivo', sans-serif !important;
+            box-shadow: none !important;
+            padding: 20px !important;
+            color: #12121266 !important;
+            border-bottom: #013250 1px solid !important;
+        }
+
+        .select2-container--default .select2-selection--single{
+            background-color: #ffffff !important;
+            border: 0 !important;
+            color: #12121266 !important;
+            border-radius: 0 !important;
+            font-family: 'Archivo', sans-serif !important;
+            height: 100% !important;
+            padding: 20px !important;
+            border-bottom: #013250 1px solid !important;
+
+        }
+
+        .select2-container .select2-selection--single .select2-selection__rendered{
+            padding: 0 !important;
+            margin: 0 !important;
+            font-family: 'Archivo', sans-serif !important;
+            color: #12121266 !important;
+            font-size: 18px !important;
+        }
+
+        .select2-results__option {
+            font-family: 'Archivo', sans-serif !important;
+            color: #12121266 !important;
+            font-size: 18px !important;
+            padding: 10px 20px !important;
+        }
+
+        .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable{
+            background-color: #289A7B !important;
+            color: #ffffff !important;
+        }
+
+        .select2-results__option--selectable {
+            background-color: #ffffff !important;
+            color: #12121266 !important;
+        }
+        
+        /* Para pantallas grandes */
+        @media (min-width: 1536px) {
+            .select2-container--default .select2-selection--single .select2-selection__rendered {
+                font-size: 1.25rem !important;
+            }
+        }
+
+        /* Estilo de la flecha desplegable */
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: 100% !important;
+        }
+
+        .select2-search__field{
+            display: none !important;
+        }
+
+        .select2-results__message{
+            font-size: 12px !important;
+        }
   </style>
 @stop
 
@@ -82,45 +150,15 @@
                   class="bg-white bg-opacity-40 placeholder:text-[#12121266] font-archivo text-text16 lg:text-text18 font-normal text-[#173525] focus:font-semibold w-full py-5 px-5 border-b border-[#173525] transition-all focus:outline-0 focus:border-0 ring-0 focus:ring-0 focus:border-b focus:border-b-[#173525] border-t-0 border-l-0 border-r-0" />
               </div>
               
-              <div>
-                <div class="flex flex-col gap-2 z-[45]">
-    
-                    <div class="dropdown w-full">
-                      <div class="input-box focus:outline-none text-opacity-40 font-archivo text-text16 lg:text-text18 font-normal text-[#15614C] focus:font-semibold border-b border-[#173525] py-9">
-                        <span
-                          class="bg-white bg-opacity-40 placeholder:text-[#12121266] font-archivo text-text16 lg:text-text18 font-normal text-[#12121266] focus:font-semibold w-full py-5 px-5 border-b border-white transition-all focus:outline-0 focus:border-0 ring-0 focus:ring-0 focus:border-b focus:border-b-white border-t-0 border-l-0 border-r-0"
-                          id="selected-service">Tipo de servicios
-                        </span>
-                      </div>
-                      
-                      <div class="list overflow-y-scroll h-[150px] scroll-typeServicios">
-                        
-                        <div class="w-full">
-                          <input type="radio" id="id0" class="radio" name="service_product"
-                            value="Selecciona servicio" />
-    
-                          <label for="id0"
-                            class="text-text16 md:text-text18 text-[#121212] text-opacity-40 typeServicios font-archivo">
-                            Selecciona servicio
-                          </label>
-                        </div>
-    
-                        @foreach ($servicios as $item)
-                          <div class="w-full">
-                            <input type="radio" name="service_product" id="radio{{ $item->id }}" class="radio"
-                              value="{{ $item->title }}" />
-                            <label for="radio{{ $item->id }}"
-                              class="text-text16 md:text-text18 text-[#121212] text-opacity-40 typeServicios font-archivo">
-                              {{ $item->title }}
-                            </label>
-                          </div>
-                        @endforeach
-                        
-                      </div>
-                    </div>
-                </div>
+              <div class="relative">
+                <select name="service_product" id="proyecto" placeholder=" " 
+                    class="customselect bg-white bg-opacity-40 placeholder:text-[#12121266] font-archivo text-text16 lg:text-text18 font-normal text-[#173525] focus:font-semibold w-full py-5 px-5 border-b border-[#173525] transition-all focus:outline-0 focus:border-0 ring-0 focus:ring-0 focus:border-b focus:border-b-[#173525] border-t-0 border-l-0 border-r-0">
+                    @foreach ($servicios as $item)
+                          <option value="{{ $item->title }}">{{ $item->title }}</option>
+                    @endforeach
+                </select>
               </div>
-              
+
               <div class="flex justify-center items-center">
                 <button type="submit"
                   class="text-[#FFFFFF] font-archivo font-bold text-text16 lg:text-text20 w-full bg-[#289A7B] py-4 px-10 text-center rounded-lg">
@@ -147,7 +185,7 @@
             <div class="absolute inset-0 bg__dark z-10 h-full"></div>
             <img src="{{ asset('images/img/noimagen.jpg') }}" class="bienvenidaSection " alt="">
         @endisset
-  </section>
+    </section>
 
   <section class="bg-[#289A7B] z-[100]">
     <div class="w-full px-[5%] xl:px-[8%] py-10" data-aos="fade-up" data-aos-offset="150">
@@ -627,6 +665,10 @@
         disableOnInteraction: false,
         pauseOnMouseEnter: true
       },
+    });
+
+    $(document).ready(function() {
+            $('.customselect').select2();
     });
   </script>
 
